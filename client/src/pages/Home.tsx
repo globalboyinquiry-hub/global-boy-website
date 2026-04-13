@@ -6,22 +6,22 @@ export default function Home() {
     {
       title: "Popular",
       year: "2025",
-      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663549016014/7xdKb3V8gMsSm6y3to2Hnp/global-boy-album-art-ia9KaBpzsvEvGY662AUdZr.webp",
+      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663549016014/7xdKb3V8gMsSm6y3to2Hnp/IMG_1400_619cd06d.PNG",
     },
     {
       title: "Sorry 4 The Wait",
       year: "2024",
-      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663549016014/7xdKb3V8gMsSm6y3to2Hnp/global-boy-album-art-ia9KaBpzsvEvGY662AUdZr.webp",
+      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663549016014/7xdKb3V8gMsSm6y3to2Hnp/IMG_1397_e25dd4ff.PNG",
     },
     {
       title: "Be Alive",
       year: "2023",
-      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663549016014/7xdKb3V8gMsSm6y3to2Hnp/global-boy-album-art-ia9KaBpzsvEvGY662AUdZr.webp",
+      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663549016014/7xdKb3V8gMsSm6y3to2Hnp/IMG_1211_a4281c75.PNG",
     },
     {
       title: "Blood Brothers",
       year: "2023",
-      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663549016014/7xdKb3V8gMsSm6y3to2Hnp/global-boy-album-art-ia9KaBpzsvEvGY662AUdZr.webp",
+      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663549016014/7xdKb3V8gMsSm6y3to2Hnp/IMG_1208_89abe688.PNG",
     },
   ];
 
@@ -77,7 +77,7 @@ export default function Home() {
             <div className="relative">
               <div className="relative z-10 rounded-lg overflow-hidden neon-glow">
                 <img
-                  src="https://d2xsxph8kpxj0f.cloudfront.net/310519663549016014/7xdKb3V8gMsSm6y3to2Hnp/global-boy-hero-gQP2F8MhQTdxgwSES8QKeK.webp"
+                  src="https://d2xsxph8kpxj0f.cloudfront.net/310519663549016014/7xdKb3V8gMsSm6y3to2Hnp/IMG_1222_c831a258.PNG"
                   alt="Global Boy"
                   className="w-full h-auto object-cover"
                 />
