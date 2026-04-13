@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import { Music, MapPin, ExternalLink } from "lucide-react";
 
 export default function Home() {
@@ -44,7 +43,15 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="pt-24 pb-12 md:pt-32 md:pb-20 relative overflow-hidden">
+      <section className="pt-24 pb-12 md:pt-32 md:pb-20 relative overflow-hidden" itemScope itemType="https://schema.org/MusicGroup">
+        <meta itemProp="name" content="Global Boy" />
+        <meta itemProp="description" content="American rapper, singer, and songwriter from Saginaw, Michigan. Based in Atlanta, Georgia." />
+        <meta itemProp="image" content="https://d2xsxph8kpxj0f.cloudfront.net/310519663549016014/7xdKb3V8gMsSm6y3to2Hnp/IMG_1222_c831a258.PNG" />
+        <meta itemProp="url" content="https://globalboy.manus.space" />
+        <meta itemProp="genre" content="Hip-Hop" />
+        <meta itemProp="genre" content="Rap" />
+        <meta itemProp="genre" content="Alternative" />
+        
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             {/* Left Content */}
@@ -60,12 +67,12 @@ export default function Home() {
                 Now based in Atlanta, Georgia, Global Boy brings raw energy and authentic storytelling to contemporary hip-hop.
               </p>
               <div className="flex flex-wrap gap-4">
-                <a href="#music">
+                <a href="#music" title="Listen to Global Boy's music">
                   <button className="button-neon">
                     Listen Now
                   </button>
                 </a>
-                <a href="#contact">
+                <a href="#contact" title="Get in touch with Global Boy">
                   <button className="button-outline-neon">
                     Get in Touch
                   </button>
@@ -78,8 +85,9 @@ export default function Home() {
               <div className="relative z-10 rounded-lg overflow-hidden neon-glow">
                 <img
                   src="https://d2xsxph8kpxj0f.cloudfront.net/310519663549016014/7xdKb3V8gMsSm6y3to2Hnp/IMG_1222_c831a258.PNG"
-                  alt="Global Boy"
+                  alt="Global Boy - American rapper and hip-hop artist from Saginaw, Michigan"
                   className="w-full h-auto object-cover"
+                  itemProp="image"
                 />
               </div>
               {/* Decorative Elements */}
@@ -91,7 +99,7 @@ export default function Home() {
       </section>
 
       {/* Streaming Platforms */}
-      <section className="py-12 bg-card/50 border-y border-border">
+      <section className="py-12 bg-card/50 border-y border-border" aria-label="Stream Global Boy's music">
         <div className="container mx-auto px-4">
           <h2 style={bebasStyle} className="text-3xl font-bold text-center mb-8 text-gradient">
             STREAM NOW
@@ -103,9 +111,10 @@ export default function Home() {
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
+                title={`Listen to Global Boy on ${link.name}`}
                 className="flex items-center justify-center gap-2 p-4 bg-background border border-border rounded-lg hover:border-primary hover:bg-primary/10 transition-all duration-300 group"
               >
-                <span className="text-2xl">{link.icon}</span>
+                <span className="text-2xl" aria-hidden="true">{link.icon}</span>
                 <span className="font-semibold text-sm text-foreground group-hover:text-primary transition-colors">
                   {link.name}
                 </span>
@@ -116,53 +125,61 @@ export default function Home() {
       </section>
 
       {/* Music Section */}
-      <section id="music" className="py-20 relative">
+      <section id="music" className="py-20 relative" aria-label="Latest music releases">
         <div className="container mx-auto px-4">
           <h2 style={bebasStyle} className="text-5xl font-bold mb-4 text-gradient">
             LATEST RELEASES
           </h2>
           <p className="text-foreground/80 mb-12 text-lg max-w-2xl">
-            Explore Global Boy's discography and discover his latest albums and tracks.
+            Explore Global Boy's discography and discover his latest albums and tracks featuring authentic hip-hop storytelling.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {albums.map((album) => (
-              <div
+              <article
                 key={album.title}
                 className="group cursor-pointer transition-transform duration-300 hover:scale-105"
+                itemScope
+                itemType="https://schema.org/MusicAlbum"
               >
+                <meta itemProp="name" content={album.title} />
+                <meta itemProp="datePublished" content={album.year} />
+                <meta itemProp="image" content={album.image} />
+                <meta itemProp="byArtist" content="Global Boy" />
+                
                 <div className="relative mb-4 rounded-lg overflow-hidden neon-glow">
                   <img
                     src={album.image}
-                    alt={album.title}
+                    alt={`${album.title} - Album by Global Boy`}
                     className="w-full aspect-square object-cover group-hover:brightness-75 transition-all duration-300"
+                    itemProp="image"
                   />
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-background/80">
-                    <Music className="w-12 h-12 text-primary" />
+                    <Music className="w-12 h-12 text-primary" aria-hidden="true" />
                   </div>
                 </div>
-                <h3 style={bebasStyle} className="text-xl font-bold text-foreground">
+                <h3 style={bebasStyle} className="text-xl font-bold text-foreground" itemProp="name">
                   {album.title}
                 </h3>
-                <p className="text-primary text-sm">{album.year}</p>
-              </div>
+                <p className="text-primary text-sm" itemProp="datePublished">{album.year}</p>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
       {/* Bio Section */}
-      <section id="bio" className="py-20 bg-card/50 border-y border-border">
+      <section id="bio" className="py-20 bg-card/50 border-y border-border" aria-label="About Global Boy">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div>
+            <article>
               <h2 style={bebasStyle} className="text-5xl font-bold mb-6 text-gradient">
                 ABOUT GLOBAL BOY
               </h2>
               <div className="space-y-4 text-foreground/90 leading-relaxed">
                 <p>
                   Global Boy (also known as Lil Glo) is an American rapper, singer, songwriter, and dancer 
-                  known for his state-of-the-art performances and authentic storytelling.
+                  known for his state-of-the-art performances and authentic storytelling in hip-hop music.
                 </p>
                 <p>
                   Born October 3, 1999, in Saginaw, Michigan, Global Boy grew up in a tight-knit family of five. 
@@ -178,9 +195,9 @@ export default function Home() {
                   "If you told me I could only do one thing, I would choose live concerts."
                 </p>
               </div>
-            </div>
+            </article>
 
-            <div className="relative">
+            <aside className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-lg blur-3xl"></div>
               <div className="relative bg-background border border-border rounded-lg p-8">
                 <div className="space-y-6">
@@ -191,20 +208,20 @@ export default function Home() {
                   <div>
                     <h3 style={bebasStyle} className="text-2xl font-bold text-primary mb-2">ORIGIN</h3>
                     <div className="flex items-center gap-2 text-foreground/80">
-                      <MapPin size={20} className="text-secondary" />
+                      <MapPin size={20} className="text-secondary" aria-hidden="true" />
                       <span>Saginaw, Michigan</span>
                     </div>
                   </div>
                   <div>
                     <h3 style={bebasStyle} className="text-2xl font-bold text-primary mb-2">BASED IN</h3>
                     <div className="flex items-center gap-2 text-foreground/80">
-                      <MapPin size={20} className="text-secondary" />
+                      <MapPin size={20} className="text-secondary" aria-hidden="true" />
                       <span>Atlanta, Georgia</span>
                     </div>
                   </div>
                   <div>
                     <h3 style={bebasStyle} className="text-2xl font-bold text-primary mb-2">GENRE</h3>
-                    <p className="text-foreground/80">Hip-Hop / Rap / Alternative</p>
+                    <p className="text-foreground/80">Hip-Hop, Rap, Alternative</p>
                   </div>
                   <div>
                     <h3 style={bebasStyle} className="text-2xl font-bold text-primary mb-2">INSTRUMENTS</h3>
@@ -212,19 +229,19 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-            </div>
+            </aside>
           </div>
         </div>
       </section>
 
       {/* Shows Section */}
-      <section id="shows" className="py-20">
+      <section id="shows" className="py-20" aria-label="Upcoming shows and events">
         <div className="container mx-auto px-4">
           <h2 style={bebasStyle} className="text-5xl font-bold mb-4 text-gradient">
             UPCOMING SHOWS
           </h2>
           <p className="text-foreground/80 mb-12 text-lg">
-            Coming soon. Check back for tour dates and live performance information.
+            Coming soon. Check back for tour dates and live performance information from Global Boy.
           </p>
           <div className="bg-card border border-border rounded-lg p-8 text-center">
             <p className="text-foreground/70 text-lg">
@@ -235,7 +252,7 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-card/50 border-y border-border">
+      <section id="contact" className="py-20 bg-card/50 border-y border-border" aria-label="Connect with Global Boy">
         <div className="container mx-auto px-4">
           <h2 style={bebasStyle} className="text-5xl font-bold mb-4 text-gradient">
             CONNECT
@@ -251,12 +268,13 @@ export default function Home() {
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
+                title={`Follow Global Boy on ${link.name}`}
                 className="group p-6 bg-background border border-border rounded-lg hover:border-primary hover:bg-primary/10 transition-all duration-300 flex items-center justify-between"
               >
                 <span style={bebasStyle} className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
                   {link.name}
                 </span>
-                <ExternalLink className="w-5 h-5 text-primary opacity-0 group-hover:opacity-100 transition-opacity" />
+                <ExternalLink className="w-5 h-5 text-primary opacity-0 group-hover:opacity-100 transition-opacity" aria-hidden="true" />
               </a>
             ))}
           </div>
